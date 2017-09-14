@@ -1,9 +1,15 @@
 var appModule = angular.module('app', ['ngRoute'])
 
 appModule.controller('indexCtrl', function ($scope, $http) {
-    console.log('index controller')
 
     $scope.search = function () {
-        console.log('search')
+        // alert($scope.keyword)
+        $http({
+            url: '/search',
+            method: 'POST',
+            data: {keyword: $scope.keyword}
+        }).then(function successCallBack(response) {
+            console.log(response.data)
+        }, function errorCallback(response) {})
     }
 })

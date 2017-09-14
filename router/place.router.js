@@ -11,7 +11,6 @@ const placeList = [
 
 const place = {
     add: (ctx) => {
-        logger.trace('place', 'add')
         Place.create({
             id: 0,
             address: '黑龙江',
@@ -22,7 +21,6 @@ const place = {
             longitude: '124.22',
             intro: 'qedsf23r4fed'
         })
-        logger.trace(Place.id)
         ctx.body = {message: 'OK'}
     },
     list: (ctx) => {
