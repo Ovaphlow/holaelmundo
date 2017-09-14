@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app" ng-controller="indexCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hola el mundo</title>
+
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/disdt/html5shiv.min.js"></script>
+    <script src="assets/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Hello world" src="lib/image/logo.png" width=64px height=80px />
+                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            首页
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>
+                            数据统计
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            基本信息
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            个人中心
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>
+                    Hola el mundo
+                    <small><br/>Devel 0.0.1</small>
+                </h2>
+                <hr/>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row col-md-12 text-center">
+            <h1>
+                <strong>你好，世界</strong>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="input-group input-group-lg">
+                    <input class="form-control" type="text" ng-modal="keyword" ng-keypress="($event.keycode == 12) ? search() : return"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="search()">GO</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&nbsp;</p>
+                <h2 class="text-primary"><strong>广告位招商</strong></h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="index.js"></script>
+</html>
+</body>

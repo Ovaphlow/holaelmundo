@@ -1,0 +1,26 @@
+{
+  "name": "holaelmundo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ovaphlow",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
+    "bootstrap": "^3.3.7",
+    "html5shiv": "^3.7.3",
+    "jquery": "^1.12.4",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-mount": "^3.0.0",
+    "koa-route": "^3.2.0",
+    "koa-static": "^4.0.1",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.8.3",
+    "tracer": "^0.8.11"
+  }
+}
