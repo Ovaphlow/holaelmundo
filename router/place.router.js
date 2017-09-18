@@ -19,17 +19,9 @@ const place = {
     },
     info: async (ctx, id) => {
         console.log(id)
-        let sql = `
-            select id, name, address, address1, address2, cover, intro
-            from hola_place
-            where id = :id
-        `
-        let data = await sequelize.query(sql, {
-            type: sequelize.QueryTypes.SELECT,
-            replacements: {id: id}
-        })
-        logger.trace(data)
-        ctx.body = data
+        let place = await Place.findById(id)
+        logger.trace(place)
+        ctx.body = place
     },
     list: async (ctx) => {
         logger.log('place', 'list')
