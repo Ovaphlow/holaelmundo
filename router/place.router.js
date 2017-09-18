@@ -1,6 +1,6 @@
 const logger = require('tracer').colorConsole()
+const sequelize = require('../util/sequelize')
 
-const sequelize = require('sequelize')
 let Place = require('../model/place.model')
 
 const placeList = [
@@ -23,9 +23,21 @@ const place = {
         })
         ctx.body = {message: 'OK'}
     },
-    list: (ctx) => {
+    list: async (ctx) => {
         logger.log('place', 'list')
-        ctx.body = placeList
+        let sql = `
+            select p.id, p.name,
+                p.address, p.address1, p.address2,
+                p.cover,
+                p.intro
+            from hola_place as p
+        `
+        let data = await sequelize.query(sql, {
+            type: sequelize.QueryTypes.SELECT,
+            replacements: ctx.request.body
+        })
+        // logger.trace(data)
+        ctx.body = data
     }
 }
 

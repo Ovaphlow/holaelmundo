@@ -1,0 +1,23 @@
+<h2>scheme-place</h2>
+<div class="col-md-12" ng-repeat="place in placeList">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <img src="{{place.cover}}" alt="{{place.name}}"/>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <p class="lead">{{place.name}}</p>
+                <hr/>
+                <ul class="list-inline">
+                    <li>{{place.address}}</li>
+                    <li>{{place.address1}}</li>
+                    <li>{{place.address2}}</li>
+                </ul>
+                <p>{{place.intro}}</p>
+                <a href="#!/place/{{place.id}}" class="pull-right">查看详情</a>
+            </div>
+        </div>
+    </div>
+</div>

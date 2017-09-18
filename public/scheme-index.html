@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="app" ng-controller="indexCtrl">
+<html lang="zh-CN" ng-app="app" ng-controller="initCtrl">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,29 +75,16 @@
 
     <div class="container">
         <div class="row col-md-12 text-center">
-            <h1>
-                <strong>你好，世界</strong>
-            </h1>
         </div>
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="input-group input-group-lg">
-                    <input class="form-control" type="text" ng-model="keyword"/>
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" ng-click="search()">GO</button>
-                    </span>
-                </div>
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="#!/user">用户</a></li>
+                    <li role="presentation"><a href="#!/place">景点</a></li>
+                    <li role="presentation"><a href="#!/diet">饮食</a></li>
+                </ul>
             </div>
-            <div class="col-md-3"></div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>&nbsp;</p>
-                <h2 class="text-primary"><strong>广告位招商</strong></h2>
+            <div class="col-md-9" ng-view>
             </div>
         </div>
     </div>
@@ -106,6 +93,6 @@
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular-route/angular-route.min.js"></script>
-    <script src="index.js"></script>
+    <script src="scheme-index.js"></script>
 </html>
 </body>
