@@ -16,6 +16,7 @@ app.use(serve('./public'))
 app.use(mount('/lib', serve('./node_modules')))
 
 const placeRouter = require('./router/place.router')
+app.use(route.get('/place/:id', placeRouter.info))
 app.use(route.get('/place', placeRouter.list))
 app.use(route.get('/place/add', placeRouter.add))
 

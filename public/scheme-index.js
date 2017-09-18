@@ -40,6 +40,12 @@ appModule.controller('placeCtrl', function ($scope, $http) {
 
 appModule.controller('placeInfoCtrl', function ($scope, $http, $routeParams) {
     console.log($routeParams.id)
+    $http({
+        url: '/place/' + $routeParams.id,
+        method: 'GET'
+    }).then(function successCallBack(response) {
+        console.log(response.data)
+    }, function errorCallback(response) {})
 })
 
 appModule.controller('dietCtrl', function ($scope, $http) {

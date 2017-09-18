@@ -3,12 +3,6 @@ const sequelize = require('../util/sequelize')
 
 let Place = require('../model/place.model')
 
-const placeList = [
-    {id: 1, name: 'place1'},
-    {id: 2, name: 'place2'},
-    {id: 3, name: 'place3'},
-]
-
 const place = {
     add: (ctx) => {
         Place.create({
@@ -22,6 +16,20 @@ const place = {
             intro: 'qedsf23r4fed'
         })
         ctx.body = {message: 'OK'}
+    },
+    info: async (ctx, id) => {
+        console.log(id)
+        let sql = `
+            select id, name, address, address1, address2, cover, intro
+            from hola_place
+            where id = :id
+        `
+        let data = await sequelize.query(sql, {
+            type: sequelize.QueryTypes.SELECT,
+            replacements: {id: id}
+        })
+        logger.trace(data)
+        ctx.body = data
     },
     list: async (ctx) => {
         logger.log('place', 'list')
