@@ -34,7 +34,7 @@ appModule.controller('userCtrl', function ($scope, $http, $routeParams) {
 })
 
 appModule.controller('placeAddCtrl', function ($scope, $http) {
-    $scope.placeInfo = {}
+    $scope.placeInfo = null
 
     $scope.submit = function () {
         console.log('add')
