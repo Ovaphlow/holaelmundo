@@ -30,32 +30,18 @@ var comm = async function (option) {
 const place = {
     add: async (ctx) => {
         logger.trace(ctx.request.body)
-        // let sql = `
-        //     insert into hola_place
-        //     set name = :name,
-        //         address = :address, address1 = address1, address2 = :address2,
-        //         latitude = :latitude, longitude = :longitude,
-        //         cover = :cover, intro = :intro
-        // `
-        // let result = await sequelize.query(sql, {
-        //     type: sequelize.QueryTypes.INSERT,
-        //     replacements: ctx.request.body
-        // })
-        // logger.trace(result)
-        const option = {
-            hostname: '127.0.0.1',
-            port: 8080,
-            path: '/test',
-            method: 'GET'
-        }
-        let result = await comm(option)
-        logger.trace('1123', result)
-        ctx.body = result
-        // .on('error', (e) => {
-            // logger.error(`通信失败: ${e.message}`)
-            // ctx.body = {message: 'ERROR'}
-        // })
-        // ctx.body = {message: 'OK'}
+        let sql = `
+            insert into hola_place
+            set name = :name,
+                address = :address, address1 = address1, address2 = :address2,
+                latitude = :latitude, longitude = :longitude,
+                cover = :cover, intro = :intro
+        `
+        let result = await sequelize.query(sql, {
+            type: sequelize.QueryTypes.INSERT,
+            replacements: ctx.request.body
+        })
+        logger.trace(result)
     },
     update: async (ctx) => {
         logger.trace(ctx.request.body)
