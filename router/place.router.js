@@ -1,24 +1,61 @@
+const http = require('http')
+
 const logger = require('tracer').colorConsole()
 const sequelize = require('../util/sequelize')
 
 let Place = require('../model/place.model')
 
+var comm = async function (option) {
+    // new Promise((resolve, reject) => {
+        let req = http.request(option, res => {
+            const {statusCode} = res
+            if (statusCode !== 200) {
+                error = new Error('请求失败:\n' + `错误代码: ${statusCode}`)
+            }
+            res.setEncoding('utf8')
+            let rawData = ''
+            res.on('data', (chunk) => {
+                let parsedData = JSON.parse(chunk)
+                logger.trace(JSON.stringify(parsedData))
+                // resolve(JSON.stringify(parsedData))
+                return JSON.stringify(parsedData)
+            })
+        })
+        req.write('')
+        req.end()
+        // resolve()
+    // })
+}
+
 const place = {
     add: async (ctx) => {
         logger.trace(ctx.request.body)
-        let sql = `
-            insert into hola_place
-            set name = :name,
-                address = :address, address1 = address1, address2 = :address2,
-                latitude = :latitude, longitude = :longitude,
-                cover = :cover, intro = :intro
-        `
-        let result = await sequelize.query(sql, {
-            type: sequelize.QueryTypes.INSERT,
-            replacements: ctx.request.body
-        })
-        logger.trace(result)
-        ctx.body = {message: 'OK'}
+        // let sql = `
+        //     insert into hola_place
+        //     set name = :name,
+        //         address = :address, address1 = address1, address2 = :address2,
+        //         latitude = :latitude, longitude = :longitude,
+        //         cover = :cover, intro = :intro
+        // `
+        // let result = await sequelize.query(sql, {
+        //     type: sequelize.QueryTypes.INSERT,
+        //     replacements: ctx.request.body
+        // })
+        // logger.trace(result)
+        const option = {
+            hostname: '127.0.0.1',
+            port: 8080,
+            path: '/test',
+            method: 'GET'
+        }
+        let result = await comm(option)
+        logger.trace('1123', result)
+        ctx.body = result
+        // .on('error', (e) => {
+            // logger.error(`通信失败: ${e.message}`)
+            // ctx.body = {message: 'ERROR'}
+        // })
+        // ctx.body = {message: 'OK'}
     },
     update: async (ctx) => {
         logger.trace(ctx.request.body)
