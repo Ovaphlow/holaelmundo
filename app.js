@@ -5,6 +5,7 @@ const bodyParser = require('koa-bodyparser')
 const mount = require('koa-mount')
 const route = require('koa-route')
 const serve = require('koa-static')
+const proxy = require('koa-proxy')
 
 const config = require('./config')
 
@@ -14,6 +15,10 @@ app.use(bodyParser())
 
 app.use(serve('./public'))
 app.use(mount('/lib', serve('./node_modules')))
+
+app.use(route.get('/student', proxy({
+    url: 'http://127.0.0.1:8080'
+})))
 
 const placeRouter = require('./router/place.router')
 app.use(route.post('/place/add', placeRouter.add))
